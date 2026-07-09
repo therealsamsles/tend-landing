@@ -13,75 +13,187 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <style type="text/css">
-         body {
-            font-family: monospace;
-            margin: 40px auto;
-            max-width: 650px;
+        /* Tend design system — tokens per the app (design/Tend.html) */
+        @font-face {
+            font-family: 'Figtree';
+            font-style: normal;
+            font-weight: 300 900;
+            font-display: swap;
+            src: url(fonts/figtree-var-latin.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 100 800;
+            font-display: swap;
+            src: url(fonts/jetbrains-mono-var-latin.woff2) format('woff2');
+        }
+
+        :root {
+            --canvas: #E8E6E1;
+            --paper: #FAF8F4;
+            --ink: #2A2926;
+            --sage: #5E7F63;
+            --mist: #E7EEE7;
+            --muted: #847F76;
+            --line: #EEE9E1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--canvas);
+            font-family: 'Figtree', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: var(--ink);
+            font-size: 16px;
             line-height: 1.6;
-            font-size: 18px;
-            color: #000000;
-            padding: 0 10px;
+            padding: 28px 12px;
+        }
+
+        main {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--paper);
+            border: 1px solid rgba(0, 0, 0, .05);
+            border-radius: 34px;
+            box-shadow: 0 12px 34px rgba(40, 35, 28, .11), 0 2px 6px rgba(40, 35, 28, .05);
+            padding: 40px 34px 34px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            main {
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+                min-height: 100vh;
+                padding: 32px 22px 28px;
+            }
+        }
+
+        header h2 {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: -.01em;
+            color: var(--sage);
+            margin: 0 0 18px;
+        }
+
+        h3 {
+            font-weight: 600;
+            font-size: 22px;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin: 30px 0 8px;
+        }
+
+        p {
+            margin: 0 0 14px;
+            color: var(--ink);
         }
 
         a {
-            color: blue; 
+            color: var(--sage);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            opacity: .7;
+        }
+
+        ::selection {
+            background: var(--mist);
         }
 
         sup {
-            font-size: 12px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* Desktop: card matches index.html (1040px) so page transitions
+           don't jump; text stays capped at a readable measure inside it. */
+        @media (min-width: 880px) {
+            main {
+                max-width: 1040px;
+                padding: 56px 64px 48px;
+            }
+
+            main > * {
+                max-width: 820px;
+            }
+
+            body {
+                font-size: 17px;
+            }
+
+            h3 {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h2>Tend</h2>
-    </header>
-    <p><a href="index.html">Return to Home Page</a></p>
-    <h3>Terms of Service</h3>
-    <p><strong>Effective Date:</strong> June 1, 2026</p>
+    <main>
+        <header>
+            <h2>Tend</h2>
+        </header>
+        <p><a href="index.html">Return to Home Page</a></p>
+        <h3>Terms of Service</h3>
+        <p><strong>Effective Date:</strong> June 1, 2026</p>
 
-    <p>These Terms and Conditions ("Terms") govern your use of Tend, operated by Sam Slesinger ("we," "our," or "us"), an SMS-based
-        service that sends you reminders to stay in touch with friends and family. By texting the Tend number, you agree
-        to these Terms.</p>
+        <p>These Terms and Conditions ("Terms") govern your use of Tend, operated by Sam Slesinger ("we," "our," or "us"), an SMS-based
+            service that sends you reminders to stay in touch with friends and family. By texting the Tend number, you agree
+            to these Terms.</p>
 
-    <h3>The Service</h3>
-    <p>Tend sends periodic SMS reminders to help you maintain relationships with people you care about. After opting in,
-        you can add contacts (first name and last initial) and receive bi-weekly reminders on Tuesdays to reach out to
-        those contacts. Following each reminder, you may receive a check-in message asking whether you connected with
-        your contact.</p>
+        <h3>The Service</h3>
+        <p>Tend sends periodic SMS reminders to help you maintain relationships with people you care about. After opting in,
+            you can add contacts (first name and last initial) and receive bi-weekly reminders on Tuesdays to reach out to
+            those contacts. Following each reminder, you may receive a check-in message asking whether you connected with
+            your contact.</p>
 
-    <h3>Consent to Receive Messages</h3>
-    <p>By texting any message to the Tend phone number, you consent to receive recurring automated SMS messages from
-        Tend, including reminders, check-ins, and service notifications. Consent is not a condition of any purchase.
-        Message frequency varies based on the number of contacts you add — approximately 2 messages per contact every 2
-        weeks.</p>
-    <p><strong>Message and data rates may apply.</strong></p>
+        <h3>Consent to Receive Messages</h3>
+        <p>By texting any message to the Tend phone number, you consent to receive recurring automated SMS messages from
+            Tend, including reminders, check-ins, and service notifications. Consent is not a condition of any purchase.
+            Message frequency varies based on the number of contacts you add — approximately 2 messages per contact every 2
+            weeks.</p>
+        <p><strong>Message and data rates may apply.</strong></p>
 
-    <h3>How to Opt Out</h3>
-    <p>You may opt out of receiving messages at any time by replying <strong>STOP</strong> to any Tend message. After
-        opting out, you will receive a confirmation message and no further messages will be sent. To resubscribe, reply
-        <strong>START</strong>.</p>
+        <h3>How to Opt Out</h3>
+        <p>You may opt out of receiving messages at any time by replying <strong>STOP</strong> to any Tend message. After
+            opting out, you will receive a confirmation message and no further messages will be sent. To resubscribe, reply
+            <strong>START</strong>.</p>
 
-    <h3>Help</h3>
-    <p>For help, reply <strong>HELP</strong> to any Tend message or contact us at <a
-            href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</p>
+        <h3>Help</h3>
+        <p>For help, reply <strong>HELP</strong> to any Tend message or contact us at <a
+                href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</p>
 
-    <h3>Your Responsibilities</h3>
-    <p>You agree to provide accurate information when using the service and not to use Tend for any unlawful purpose.
-        You are responsible for ensuring that any contacts you add have a relationship with you and would reasonably
-        expect you to be in touch with them.</p>
+        <h3>Your Responsibilities</h3>
+        <p>You agree to provide accurate information when using the service and not to use Tend for any unlawful purpose.
+            You are responsible for ensuring that any contacts you add have a relationship with you and would reasonably
+            expect you to be in touch with them.</p>
 
-    <h3>Limitation of Liability</h3>
-    <p>Tend is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use
-        of the service, including missed reminders due to service outages or carrier issues.</p>
+        <h3>Limitation of Liability</h3>
+        <p>Tend is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use
+            of the service, including missed reminders due to service outages or carrier issues.</p>
 
-    <h3>Changes to These Terms</h3>
-    <p>We may update these Terms from time to time. Continued use of the service after changes are posted constitutes
-        acceptance of the updated Terms.</p>
+        <h3>Changes to These Terms</h3>
+        <p>We may update these Terms from time to time. Continued use of the service after changes are posted constitutes
+            acceptance of the updated Terms.</p>
 
-    <h3>Contact Us</h3>
-    <p>If you have any questions about these Terms of Service, please contact us: <a
-            href="mailto:hello@tendsms.com">hello@tendsms.com</a></p>
-    <p>&copy; 2026 Sam Slesinger. All rights reserved.</p>
+        <h3>Contact Us</h3>
+        <p>If you have any questions about these Terms of Service, please contact us: <a
+                href="mailto:hello@tendsms.com">hello@tendsms.com</a></p>
+        <p>&copy; 2026 Sam Slesinger. All rights reserved.</p>
+    </main>
 </body>
+</html>

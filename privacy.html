@@ -13,84 +13,211 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <style type="text/css">
-         body {
-            font-family: monospace;
-            margin: 40px auto;
-            max-width: 650px;
+        /* Tend design system — tokens per the app (design/Tend.html) */
+        @font-face {
+            font-family: 'Figtree';
+            font-style: normal;
+            font-weight: 300 900;
+            font-display: swap;
+            src: url(fonts/figtree-var-latin.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 100 800;
+            font-display: swap;
+            src: url(fonts/jetbrains-mono-var-latin.woff2) format('woff2');
+        }
+
+        :root {
+            --canvas: #E8E6E1;
+            --paper: #FAF8F4;
+            --ink: #2A2926;
+            --sage: #5E7F63;
+            --mist: #E7EEE7;
+            --muted: #847F76;
+            --line: #EEE9E1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--canvas);
+            font-family: 'Figtree', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: var(--ink);
+            font-size: 16px;
             line-height: 1.6;
-            font-size: 18px;
-            color: #000000;
-            padding: 0 10px;
+            padding: 28px 12px;
+        }
+
+        main {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--paper);
+            border: 1px solid rgba(0, 0, 0, .05);
+            border-radius: 34px;
+            box-shadow: 0 12px 34px rgba(40, 35, 28, .11), 0 2px 6px rgba(40, 35, 28, .05);
+            padding: 40px 34px 34px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            main {
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+                min-height: 100vh;
+                padding: 32px 22px 28px;
+            }
+        }
+
+        header h2 {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: -.01em;
+            color: var(--sage);
+            margin: 0 0 18px;
+        }
+
+        h3 {
+            font-weight: 600;
+            font-size: 22px;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin: 30px 0 8px;
+        }
+
+        h4 {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--ink);
+            margin: 24px 0 8px;
+        }
+
+        p, li {
+            color: var(--ink);
+        }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        ul {
+            margin: 0 0 14px;
+            padding-left: 22px;
         }
 
         a {
-            color: blue; 
+            color: var(--sage);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            opacity: .7;
+        }
+
+        ::selection {
+            background: var(--mist);
         }
 
         sup {
-            font-size: 12px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* Desktop: card matches index.html (1040px) so page transitions
+           don't jump; text stays capped at a readable measure inside it. */
+        @media (min-width: 880px) {
+            main {
+                max-width: 1040px;
+                padding: 56px 64px 48px;
+            }
+
+            main > * {
+                max-width: 820px;
+            }
+
+            body {
+                font-size: 17px;
+            }
+
+            h3 {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h2>Tend</h2>
-    </header>
-    <p><a href="index.html">Return to Home Page</a></p>
-    <h3>Privacy Policy</h3>
-    <p><strong>Effective Date:</strong> June 1, 2026</p>
+    <main>
+        <header>
+            <h2>Tend</h2>
+        </header>
+        <p><a href="index.html">Return to Home Page</a></p>
+        <h3>Privacy Policy</h3>
+        <p><strong>Effective Date:</strong> June 1, 2026</p>
 
-    <p>Tend, operated by Sam Slesinger ("we," "our," or "us") respects your privacy. This Privacy Policy explains what we collect, how
-        we use it, and your choices when you use our SMS-based service.</p>
+        <p>Tend, operated by Sam Slesinger ("we," "our," or "us") respects your privacy. This Privacy Policy explains what we collect, how
+            we use it, and your choices when you use our SMS-based service.</p>
 
-    <h4>Information We Collect</h4>
-    <p>We collect only the minimum information necessary to operate the service:</p>
-    <ul>
-        <li>Your phone number.</li>
-        <li>The first name and last initial of your contacts.</li>
-    </ul>
-    <p>We do not collect last names, email addresses, payment details, or other personal identifiers. We may also
-        process limited technical and usage data (such as message delivery confirmations and error logs) to operate and
-        improve the service.</p>
+        <h4>Information We Collect</h4>
+        <p>We collect only the minimum information necessary to operate the service:</p>
+        <ul>
+            <li>Your phone number.</li>
+            <li>The first name and last initial of your contacts.</li>
+        </ul>
+        <p>We do not collect last names, email addresses, payment details, or other personal identifiers. We may also
+            process limited technical and usage data (such as message delivery confirmations and error logs) to operate and
+            improve the service.</p>
 
-    <h4>How We Use Your Information</h4>
-    <p>We use your information solely to provide and maintain the SMS messaging service, including to:</p>
-    <ul>
-        <li>Send and deliver SMS messages</li>
-        <li>Manage opt-in, opt-out, and consent status</li>
-        <li>Monitor performance and prevent abuse</li>
-    </ul>
-    <p>We do not use your information for targeted advertising or unrelated marketing.</p>
+        <h4>How We Use Your Information</h4>
+        <p>We use your information solely to provide and maintain the SMS messaging service, including to:</p>
+        <ul>
+            <li>Send and deliver SMS messages</li>
+            <li>Manage opt-in, opt-out, and consent status</li>
+            <li>Monitor performance and prevent abuse</li>
+        </ul>
+        <p>We do not use your information for targeted advertising or unrelated marketing.</p>
 
-    <h4>Sharing of Your Information</h4>
-    <p><strong>We do not sell or share mobile numbers, consent status, or SMS opt-in data with third parties or
-            affiliates for marketing.</strong> Mobile information is used only to deliver the messaging program and may
-        be shared with service providers solely to provide that service (for example, SMS delivery partners).</p>
+        <h4>Sharing of Your Information</h4>
+        <p><strong>We do not sell or share mobile numbers, consent status, or SMS opt-in data with third parties or
+                affiliates for marketing.</strong> Mobile information is used only to deliver the messaging program and may
+            be shared with service providers solely to provide that service (for example, SMS delivery partners).</p>
 
-    <h4>Data Security</h4>
-    <p>We implement reasonable safeguards to protect the limited personal information we collect. However, no method of
-        transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+        <h4>Data Security</h4>
+        <p>We implement reasonable safeguards to protect the limited personal information we collect. However, no method of
+            transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
 
-    <h4>Message Frequency & Data Rates</h4>
-    <p>Message frequency varies based on the number of contacts you add, approximately 2 messages per contact every 2 weeks. <strong>Message and data rates may apply.</strong> To opt out, reply STOP to any message.</p>
+        <h4>Message Frequency & Data Rates</h4>
+        <p>Message frequency varies based on the number of contacts you add, approximately 2 messages per contact every 2 weeks. <strong>Message and data rates may apply.</strong> To opt out, reply STOP to any message.</p>
 
-    <h4>Your Choices and Rights</h4>
-    <ul>
-        <li><strong>Opt-Out:</strong> You may opt out at any time by responding “STOP” or "UNSUBSCRIBE" to any SMS.</li>
-        <li><strong>Support:</strong> You may delete your data at any time by contacting us at <a href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</li>
-    </ul>
+        <h4>Your Choices and Rights</h4>
+        <ul>
+            <li><strong>Opt-Out:</strong> You may opt out at any time by responding “STOP” or "UNSUBSCRIBE" to any SMS.</li>
+            <li><strong>Support:</strong> You may delete your data at any time by contacting us at <a href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</li>
+        </ul>
 
-    <h3>Children’s Privacy</h3>
-    <p>Our service is not directed to children under 13, and we do not knowingly collect information from children. If
-        we become aware of such collection, we will delete it.</p>
+        <h3>Children’s Privacy</h3>
+        <p>Our service is not directed to children under 13, and we do not knowingly collect information from children. If
+            we become aware of such collection, we will delete it.</p>
 
-    <h3>Changes to This Policy</h3>
-    <p>We may update this Privacy Policy from time to time. When we do, we will update the “Effective Date” above and
-        post the new version on this page.</p>
+        <h3>Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the “Effective Date” above and
+            post the new version on this page.</p>
 
-    <h3>Contact Us</h3>
-    <p>If you have any questions about this Privacy Policy or our practices, please contact us: <a
-            href="mailto:hello@tendsms.com">hello@tendsms.com</a></p>
-    <p>&copy; 2026 Sam Slesinger. All rights reserved.</p>
+        <h3>Contact Us</h3>
+        <p>If you have any questions about this Privacy Policy or our practices, please contact us: <a
+                href="mailto:hello@tendsms.com">hello@tendsms.com</a></p>
+        <p>&copy; 2026 Sam Slesinger. All rights reserved.</p>
+    </main>
 </body>
+</html>

@@ -13,99 +13,274 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <style type="text/css">
+        /* Tend design system — tokens per the app (design/Tend.html) */
+        @font-face {
+            font-family: 'Figtree';
+            font-style: normal;
+            font-weight: 300 900;
+            font-display: swap;
+            src: url(fonts/figtree-var-latin.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 100 800;
+            font-display: swap;
+            src: url(fonts/jetbrains-mono-var-latin.woff2) format('woff2');
+        }
+
+        :root {
+            --canvas: #E8E6E1;
+            --paper: #FAF8F4;
+            --ink: #2A2926;
+            --sage: #5E7F63;
+            --mist: #E7EEE7;
+            --muted: #847F76;
+            --faint: #A29E96;
+            --line: #EEE9E1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: monospace;
-            margin: 40px auto;
-            max-width: 650px;
+            margin: 0;
+            background: var(--canvas);
+            font-family: 'Figtree', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: var(--ink);
+            font-size: 16px;
             line-height: 1.6;
-            font-size: 18px;
-            color: #000000;
-            padding: 0 10px;
+            padding: 28px 12px;
+        }
+
+        main {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--paper);
+            border: 1px solid rgba(0, 0, 0, .05);
+            border-radius: 34px;
+            box-shadow: 0 12px 34px rgba(40, 35, 28, .11), 0 2px 6px rgba(40, 35, 28, .05);
+            padding: 40px 34px 34px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            main {
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+                min-height: 100vh;
+                padding: 32px 22px 28px;
+            }
+        }
+
+        header h2 {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: -.01em;
+            color: var(--sage);
+            margin: 0 0 28px;
+        }
+
+        h3 {
+            font-weight: 600;
+            font-size: 22px;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin: 34px 0 8px;
+        }
+
+        h4 {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--ink);
+            margin: 26px 0 10px;
+        }
+
+        p {
+            margin: 0 0 14px;
+            color: var(--ink);
         }
 
         a {
-            color: blue;
+            color: var(--sage);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            opacity: .7;
+        }
+
+        ::selection {
+            background: var(--mist);
         }
 
         sup {
-            font-size: 12px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--line);
+            margin: 30px 0 18px;
         }
 
         .chat {
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            padding: 16px;
+            background: #fff;
+            border: 1px solid #EFEAE2;
+            border-radius: 16px;
+            padding: 16px 18px;
             margin: 20px 0;
             max-width: 420px;
         }
 
         .chat-label {
-            font-size: 12px;
-            color: #888;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--faint);
             text-align: center;
             margin: 0 0 10px;
         }
 
         .bubble {
             border-radius: 16px;
-            padding: 8px 12px;
+            padding: 10px 14px;
             margin: 6px 0;
-            font-size: 15px;
-            line-height: 1.4;
+            font-size: 14px;
+            line-height: 1.5;
             max-width: 85%;
             width: fit-content;
         }
 
         .from-tend {
-            background: #e9e9eb;
-            color: #000;
+            background: #EFF3EF;
+            color: #3E5642;
+            border-top-left-radius: 6px;
         }
 
         .from-you {
-            background: #1084ff;
+            background: var(--sage);
             color: #fff;
             margin-left: auto;
+            border-bottom-right-radius: 6px;
+        }
+
+        .fine-print {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* Desktop: use the width — hero text beside the chat mock, steps in
+           columns. Same tokens; phone layout above is untouched. */
+        @media (min-width: 880px) {
+            main {
+                max-width: 1040px;
+                padding: 56px 64px 48px;
+            }
+
+            .hero-copy h3 {
+                font-size: 40px;
+                margin: 0 0 12px;
+            }
+
+            .hero-copy p {
+                font-size: 18px;
+                max-width: 910px;
+            }
+
+            .hero-cta {
+                font-size: 18px;
+                margin-top: 18px;
+            }
+
+            .chats {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+                align-items: stretch;
+                margin: 28px 0 6px;
+            }
+
+            .chats .chat {
+                margin: 0;
+                max-width: none;
+            }
+
+            .steps {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+                margin: 8px 0 26px;
+            }
+
+            .steps p {
+                margin: 0;
+                background: #fff;
+                border: 1px solid #EFEAE2;
+                border-radius: 16px;
+                padding: 18px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h2>Tend</h2>
-    </header>
+    <main>
+        <header>
+            <h2>Tend</h2>
+        </header>
 
-    <h3>Stay in touch</h3>
-    <p>Tend texts you a gentle reminder, every couple of weeks, to check in with friends and family.</p>
+        <div class="hero-copy">
+            <h3 style="margin-top:0;">Stay in touch.</h3>
+            <p>Tend texts you a gentle reminder, every couple of weeks, to check in with the people you care about.</p>
+            <h4 class="hero-cta">👉 Text <strong>HELLO</strong> to <a href="tel:+14159153243">(415) 915-3243</a> to get started.<sup>1</sup></h4>
+        </div>
 
-    <div class="chat">
-        <p class="chat-label">Tend</p>
-        <div class="bubble from-tend">Tend: Here's your reminder to reach out to Cam E. Even a GIF or emoji
-            says you're thinking about them!</div>
-    </div>
+        <div class="chats">
+            <div class="chat">
+                <p class="chat-label">Tend</p>
+                <div class="bubble from-tend">Tend: Here's your reminder to reach out to Cam E. Even a GIF or emoji
+                    says you're thinking about them!</div>
+            </div>
+            <div class="chat">
+                <p class="chat-label">Tend</p>
+                <div class="bubble from-tend">Did you end up reaching out to Cam E? Reply Y or N.</div>
+                <div class="bubble from-you">Y</div>
+                <div class="bubble from-tend">Thanks for the update! 👍</div>
+            </div>
+        </div>
 
-    <h4>👉 Text <strong>HELLO</strong> to <a href="tel:+14159153243">(415) 915-3243</a> to get started.<sup>1</sup></h4>
+        <h3>How it works</h3>
+        <div class="steps">
+            <p>1. <strong>Text HELLO.</strong> There's no registration or app to download.</p>
+            <p>2. <strong>Add your contacts.</strong> We only collect first name and last initial.</p>
+            <p>3. <strong>Get a nudge</strong> every two weeks, then Tend checks back.</p>
+        </div>
 
-    <h3>How it works</h3>
-    <p>1. <strong>Text HELLO.</strong> There's no account registration or app to download.</p>
-    <p>2. <strong>Add your contacts.</strong> We only collect first name and last initial.</p>
-    <p>3. <strong>Get a nudge</strong> every two weeks, then Tend checks back.</p>
-
-    <div class="chat">
-        <p class="chat-label">Tend</p>
-        <div class="bubble from-tend">Did you end up reaching out to Cam E? Reply Y or N.</div>
-        <div class="bubble from-you">Y</div>
-        <div class="bubble from-tend">Thanks for the update! 👍</div>
-    </div>
-
-    <h3>Why we built this</h3>
-    <p>U.S. adults spend over 10 hours a week on social media,<sup>2</sup> and scrolling leaves you
-        drained. What you're missing is real, human connection with your friends and loved
-        ones. Tend redirects that time and attention back to your relationships.</p>
-    <hr>
-    <p style="font-size: 12px;"> 1. By texting HELLO you agree to receive automated SMS reminders from Tend. Msg freq: ~2 msgs per contact every 2 weeks. Msg & data rates may apply. Reply STOP to unsubscribe. For more info view our <a href="terms.html">terms of service</a> and <a href="privacy.html">privacy policy</a>.</p>
-    <p style="font-size: 12px;">2. SOAX. (2025). What percentage of Americans use social media? Retrieved from
-        https://soax.com/research/what-percentage-of-americans-use-social-media</p>
-    <p>Contact us at <a href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</p>
-    <p>&copy; 2026 Sam Slesinger. All rights reserved.</p>
+        <h3>Why we built this</h3>
+        <div class="hero-copy">
+        <p>U.S. adults spend over 10 hours a week on social media,<sup>2</sup> and scrolling leaves you
+            drained. What you're missing is real, human connection with your friends and loved
+            ones. Tend redirects that time and attention back to your relationships.</p>
+        </div>
+        <hr>
+        <p class="fine-print"> 1. By texting HELLO you agree to receive automated SMS reminders from Tend. Msg freq: ~2 msgs per contact every 2 weeks. Msg & data rates may apply. Reply STOP to unsubscribe. For more info view our <a href="terms.html">terms of service</a> and <a href="privacy.html">privacy policy</a>.</p>
+        <p class="fine-print">2. SOAX. (2025). What percentage of Americans use social media? Retrieved from
+            https://soax.com/research/what-percentage-of-americans-use-social-media</p>
+        <p>Contact us at <a href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</p>
+        <p>&copy; 2026 Sam Slesinger. All rights reserved.</p>
+    </main>
 </body>
 </html>
