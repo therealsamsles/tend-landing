@@ -80,12 +80,24 @@
             }
         }
 
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 28px;
+        }
+
         header h2 {
             font-weight: 700;
             font-size: 24px;
             letter-spacing: -.01em;
             color: var(--sage);
-            margin: 0 0 28px;
+            margin: 0;
+        }
+
+        .login-link {
+            font-size: 14px;
+            padding: 4px 2px;
         }
 
         h3 {
@@ -240,6 +252,7 @@
     <main>
         <header>
             <h2>Tend</h2>
+            <a class="login-link" href="https://app.tendsms.com">Log in</a>
         </header>
 
         <div class="hero-copy">
