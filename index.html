@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://tendsms.com">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Tend">
-    <meta property="og:image" content="https://tendsms.com/og-image.png">
+    <meta property="og:image" content="https://tendsms.com/og-image-v2.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Tend — Stay in touch. Gentle reminders to reach out to the people you care about.">
@@ -22,12 +22,14 @@
     <meta name="twitter:title" content="Tend | Stay in touch">
     <meta name="twitter:description"
         content="Tend texts you a gentle reminder, every couple of weeks, to reach out to friends and family.">
-    <meta name="twitter:image" content="https://tendsms.com/og-image.png">
+    <meta name="twitter:image" content="https://tendsms.com/og-image-v2.png">
 
     <title>Tend</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <style type="text/css">
         /* Tend design system — tokens per the app (design/Tend.html) */
@@ -104,12 +106,10 @@
             margin: 0 0 28px;
         }
 
-        header h2 {
-            font-weight: 700;
-            font-size: 24px;
-            letter-spacing: -.01em;
-            color: var(--sage);
-            margin: 0;
+        header .wordmark {
+            display: block;
+            height: 20px;
+            width: auto;
         }
 
         .login-link {
@@ -268,12 +268,12 @@
 <body>
     <main>
         <header>
-            <h2>Tend</h2>
+            <img class="wordmark" src="/wordmark.svg" alt="Tend" height="20">
             <a class="login-link" href="https://app.tendsms.com">Log in</a>
         </header>
 
         <div class="hero-copy">
-            <h3 style="margin-top:0;">Stay in touch.</h3>
+            <h3 style="margin-top:0;color:var(--sage);">Stay in touch.</h3>
             <p>Tend texts you a gentle reminder, every couple of weeks, to check in with the people you care about.</p>
             <h4 class="hero-cta">👉 Text <strong>HELLO</strong> to <a href="tel:+14159153243">(415) 915-3243</a> to start.<sup>1</sup></h4>
         </div>

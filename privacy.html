@@ -10,7 +10,9 @@
     <title>Tend</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <style type="text/css">
         /* Tend design system — tokens per the app (design/Tend.html) */
@@ -79,11 +81,13 @@
             }
         }
 
-        header h2 {
-            font-weight: 700;
-            font-size: 24px;
-            letter-spacing: -.01em;
-            color: var(--sage);
+        header .wordmark {
+            display: block;
+            height: 20px;
+            width: auto;
+        }
+
+        header {
             margin: 0 0 18px;
         }
 
@@ -160,7 +164,7 @@
 <body>
     <main>
         <header>
-            <h2>Tend</h2>
+            <img class="wordmark" src="/wordmark.svg" alt="Tend" height="20">
         </header>
         <p><a href="index.html">Return to Home Page</a></p>
         <h3>Privacy Policy</h3>
