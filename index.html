@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Tend texts you a gentle reminder, every couple of weeks, to reach out to friends and family.">
+        content="Tend texts you a gentle reminder every couple of weeks to reach out to the people you care about. No app, no feed, and it's free.">
 
     <!-- Link previews -->
-    <meta property="og:title" content="Tend | Stay in touch">
+    <meta property="og:title" content="Tend | Stay close to the people who matter">
     <meta property="og:description"
-        content="Tend texts you a gentle reminder, every couple of weeks, to reach out to friends and family.">
+        content="Tend texts you a gentle reminder every couple of weeks to reach out to your friends and loved ones. No app, and it's free.">
     <meta property="og:url" content="https://tendsms.com">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Tend">
     <meta property="og:image" content="https://tendsms.com/og-image-v2.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Tend — Stay in touch. Gentle reminders to reach out to the people you care about.">
+    <meta property="og:image:alt" content="Tend — Stay close to the people who matter. Gentle reminders to reach out to the people you care about.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tend | Stay in touch">
+    <meta name="twitter:title" content="Tend | Stay close to the people who matter">
     <meta name="twitter:description"
-        content="Tend texts you a gentle reminder, every couple of weeks, to reach out to friends and family.">
+        content="Tend texts you a gentle reminder every couple of weeks to reach out to your friends and loved ones. No app, and it's free.">
     <meta name="twitter:image" content="https://tendsms.com/og-image-v2.png">
 
     <title>Tend</title>
@@ -60,9 +60,7 @@
             --line: #EEE9E1;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -70,247 +68,376 @@
             font-family: 'Figtree', system-ui, sans-serif;
             -webkit-font-smoothing: antialiased;
             color: var(--ink);
-            font-size: 16px;
             line-height: 1.6;
             padding: 28px 12px;
         }
 
         main {
-            max-width: 650px;
+            max-width: 640px;
             margin: 0 auto;
             background: var(--paper);
             border: 1px solid rgba(0, 0, 0, .05);
             border-radius: 34px;
             box-shadow: 0 12px 34px rgba(40, 35, 28, .11), 0 2px 6px rgba(40, 35, 28, .05);
-            padding: 40px 34px 34px;
+            overflow: hidden;
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 0;
-            }
+        a { color: var(--sage); text-decoration: none; }
+        a:hover { opacity: .75; }
+        ::selection { background: var(--mist); }
 
-            main {
-                border-radius: 0;
-                border: none;
-                box-shadow: none;
-                min-height: 100vh;
-                padding: 32px 22px 28px;
-            }
-        }
-
-        header {
+        /* Header */
+        .site-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 0 0 28px;
+            padding: 20px 22px;
         }
+        .site-header .wordmark { display: block; height: 19px; width: auto; }
+        .login-link { font-size: 14px; font-weight: 600; }
 
-        header .wordmark {
-            display: block;
-            height: 20px;
-            width: auto;
-        }
+        /* Section rhythm */
+        .sec { padding: 40px 22px; }
 
-        .login-link {
-            font-size: 14px;
-            padding: 4px 2px;
-        }
-
-        h3 {
-            font-weight: 600;
-            font-size: 22px;
-            letter-spacing: -.02em;
-            color: var(--ink);
-            margin: 34px 0 8px;
-        }
-
-        h4 {
-            font-weight: 600;
-            font-size: 16px;
-            color: var(--ink);
-            margin: 26px 0 10px;
-        }
-
-        p {
-            margin: 0 0 14px;
-            color: var(--ink);
-        }
-
-        a {
-            color: var(--sage);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        a:hover {
-            opacity: .7;
-        }
-
-        ::selection {
-            background: var(--mist);
-        }
-
-        sup {
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid var(--line);
-            margin: 30px 0 18px;
-        }
-
-        .chat {
-            background: #fff;
-            border: 1px solid #EFEAE2;
-            border-radius: 16px;
-            padding: 16px 18px;
-            margin: 20px 0;
-            max-width: 420px;
-        }
-
-        .chat-label {
+        .kicker {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .13em;
+            font-weight: 600;
+            letter-spacing: .14em;
             text-transform: uppercase;
             color: var(--faint);
+        }
+
+        /* Hero */
+        .hero { text-align: center; padding-top: 8px; }
+        .hero h1 {
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 1.08;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin: 14px 0 12px;
+        }
+        .hero .sub {
+            font-size: 16.5px;
+            line-height: 1.55;
+            color: #6E6A62;
+            margin: 0 auto 26px;
+            max-width: 520px;
+        }
+        .cta {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            background: #26241F;
+            border-radius: 18px;
+            padding: 20px 34px;
+            box-shadow: 0 12px 30px rgba(40, 35, 28, .2);
+        }
+        .cta .cta-label { font-size: 15px; color: #C7C2B8; font-weight: 500; }
+        .cta .cta-label strong { color: #fff; font-weight: 700; letter-spacing: .02em; }
+        .cta .cta-num {
+            font-size: 27px;
+            font-weight: 700;
+            letter-spacing: -.01em;
+            color: #fff;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* See it */
+        .see {
+            background: #F1EEE8;
+            border-top: 1px solid #E7E1D7;
+            border-bottom: 1px solid #E7E1D7;
             text-align: center;
+        }
+        .see h2, .steps-head, .faq-head { }
+        .see h2 {
+            font-weight: 600;
+            font-size: 27px;
+            letter-spacing: -.02em;
+            color: var(--ink);
             margin: 0 0 10px;
         }
-
-        .bubble {
-            border-radius: 16px;
-            padding: 10px 14px;
-            margin: 6px 0;
-            font-size: 14px;
-            line-height: 1.5;
-            max-width: 85%;
-            width: fit-content;
+        .see .see-body {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #6E6A62;
+            margin: 0 auto 32px;
+            max-width: 560px;
+        }
+        .see-row {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .from-tend {
-            background: #EFF3EF;
-            color: #3E5642;
-            border-top-left-radius: 6px;
+        /* How it works */
+        h2.section-title {
+            font-weight: 600;
+            font-size: 26px;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin: 0 0 8px;
+            text-align: center;
         }
-
-        .from-you {
-            background: var(--sage);
-            color: #fff;
-            margin-left: auto;
-            border-bottom-right-radius: 6px;
+        .steps { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+        .step .num {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: var(--mist); color: var(--sage);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 17px; margin-bottom: 14px;
         }
+        .step h3 { font-weight: 600; font-size: 18px; color: var(--ink); margin: 0 0 6px; }
+        .step p { font-size: 15px; line-height: 1.55; color: #6E6A62; margin: 0; }
 
+        /* Small on purpose */
+        .pullquote {
+            font-weight: 600;
+            font-size: 25px;
+            line-height: 1.25;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin: 0 auto 32px;
+            max-width: 620px;
+            text-align: center;
+            text-wrap: balance;
+        }
+        .pillars { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 26px; }
+        .pillar {
+            background: var(--paper);
+            border: 1px solid #EAE5DC;
+            border-radius: 18px;
+            padding: 22px 22px;
+        }
+        .pillar h3 { font-weight: 600; font-size: 19px; color: var(--ink); margin: 0 0 7px; }
+        .pillar p { font-size: 15px; line-height: 1.55; color: #6E6A62; margin: 0; }
+
+        /* FAQ */
+        .faq-list { max-width: 720px; margin: 20px auto 0; }
+        details { border-top: 1px solid #EAE5DC; }
+        details:last-child { border-bottom: 1px solid #EAE5DC; }
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 2px;
+            font-weight: 600;
+            font-size: 17px;
+            color: var(--ink);
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary .chev { color: var(--sage); font-size: 20px; line-height: 1; transition: transform .2s ease; }
+        details[open] summary .chev { transform: rotate(90deg); }
+        details p { font-size: 15px; line-height: 1.6; color: #6E6A62; margin: 0 2px 18px; }
+
+        /* Footer (dark) */
+        .foot { background: #26241F; padding: 36px 22px 40px; }
+        .foot-top {
+            display: flex; align-items: flex-start; justify-content: space-between;
+            gap: 24px; flex-wrap: wrap; margin-bottom: 24px;
+        }
+        .foot .wordmark { height: 20px; width: auto; display: block; filter: brightness(0) invert(1); opacity: .92; margin-bottom: 12px; }
+        .foot-contact { font-size: 14px; color: #B7B2A8; margin: 0; }
+        .foot-contact a { color: #A8C0AC; }
+        .foot-links { display: flex; gap: 24px; font-size: 14px; font-weight: 600; }
+        .foot-links a { color: #E4DFD6; }
         .fine-print {
-            font-size: 12px;
-            color: var(--muted);
-            line-height: 1.55;
+            font-size: 11.5px; line-height: 1.6; color: #8A857C; margin: 0 0 10px;
+            border-top: 1px solid #3A3730; padding-top: 20px;
+        }
+        .fine-print a { color: #A8C0AC; }
+        .copyright { font-size: 11.5px; color: #8A857C; margin: 0; }
+
+        /* Desktop */
+        @media (min-width: 880px) {
+            main { max-width: 1040px; }
+            .site-header { padding: 22px 40px; }
+            .sec { padding: 56px; }
+            .hero { padding: 34px 56px 56px; }
+            .hero h1 { font-size: 56px; line-height: 1.05; margin: 16px 0 14px; }
+            .hero .sub { font-size: 19px; max-width: 640px; }
+            .cta .cta-num { font-size: 30px; }
+            .see h2 { font-size: 34px; }
+            .see .see-body { font-size: 16.5px; max-width: 640px; }
+            .see-row { gap: 26px; }
+            h2.section-title { font-size: 30px; }
+            .steps { flex-direction: row; gap: 26px; margin-top: 28px; }
+            .step { flex: 1; }
+            .pullquote { font-size: 30px; }
+            .pillars { grid-template-columns: 1fr 1fr; gap: 18px; }
+            .foot { padding: 40px 56px 48px; }
         }
 
-        /* Desktop: use the width — hero text beside the chat mock, steps in
-           columns. Same tokens; phone layout above is untouched. */
-        @media (min-width: 880px) {
-            main {
-                max-width: 1040px;
-                padding: 56px 64px 48px;
-            }
-
-            .hero-copy h3 {
-                font-size: 40px;
-                margin: 0 0 12px;
-            }
-
-            .hero-copy p {
-                font-size: 18px;
-                max-width: 910px;
-            }
-
-            .hero-cta {
-                font-size: 18px;
-                margin-top: 18px;
-            }
-
-            .chats {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 28px;
-                align-items: stretch;
-                margin: 28px 0 6px;
-            }
-
-            .chats .chat {
-                margin: 0;
-                max-width: none;
-            }
-
-            .steps {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 28px;
-                margin: 8px 0 26px;
-            }
-
-            .steps p {
-                margin: 0;
-                background: #fff;
-                border: 1px solid #EFEAE2;
-                border-radius: 16px;
-                padding: 18px 20px;
-            }
+        @media (max-width: 480px) {
+            body { padding: 0; }
+            main { max-width: none; border-radius: 0; border: none; box-shadow: none; }
         }
     </style>
 </head>
 
 <body>
     <main>
-        <header>
-            <img class="wordmark" src="/wordmark.svg" alt="Tend" height="20">
+        <!-- HEADER -->
+        <header class="site-header">
+            <img class="wordmark" src="/wordmark.svg" alt="Tend">
             <a class="login-link" href="https://app.tendsms.com">Log in</a>
         </header>
 
-        <div class="hero-copy">
-            <h3 style="margin-top:0;color:var(--sage);">Stay in touch.</h3>
-            <p>Tend texts you a gentle reminder, every couple of weeks, to check in with the people you care about.</p>
-            <h4 class="hero-cta">👉 Text <strong>HELLO</strong> to <a href="tel:+14159153243">(415) 915-3243</a> to start.<sup>1</sup></h4>
-        </div>
-
-        <div class="chats">
-            <div class="chat">
-                <p class="chat-label">Tend</p>
-                <div class="bubble from-tend">Tend: Here's your reminder to reach out to Cam E. Even a GIF or emoji
-                    says you're thinking about them!</div>
+        <!-- HERO -->
+        <section class="sec hero">
+            <div class="kicker">Now in beta</div>
+            <h1>Stay close to the people who matter.</h1>
+            <p class="sub">Tend texts you a gentle reminder every couple of weeks to reach out to your friends and loved ones. There's no app, and we don't sell your data. Our north star is to help you connect. And it's free.</p>
+            <div class="cta">
+                <div class="cta-label">Text <strong>HELLO</strong> to start</div>
+                <a class="cta-num" href="tel:+14159153243">(415) 915-3243</a>
             </div>
-            <div class="chat">
-                <p class="chat-label">Tend</p>
-                <div class="bubble from-tend">Did you end up reaching out to Cam E? Reply Y or N.</div>
-                <div class="bubble from-you">Y</div>
-                <div class="bubble from-tend">Thanks for the update! 👍</div>
+        </section>
+
+        <!-- SEE IT -->
+        <section class="sec see">
+            <h2>It all happens over text.</h2>
+            <p class="see-body">Tend lives in your messages. Add someone, and every couple of weeks you'll get a nudge to reach out. Reply, and Tend keeps track. When you want the bigger picture, visit the web dashboard to see everyone in one place.</p>
+            <div class="see-row">
+                <!-- SMS mocks column -->
+                <div style="display:flex;flex-direction:column;gap:16px;width:100%;max-width:340px;">
+                    <div style="background:#FAF8F4;border:1px solid #EAE5DC;border-radius:20px;padding:16px 16px 18px;box-shadow:0 6px 18px rgba(40,35,28,.06);text-align:left;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A29E96;margin-bottom:12px;">Tend</div>
+                        <div style="background:#E7EEE7;border-radius:16px;border-top-left-radius:6px;padding:13px 15px;font-size:14.5px;line-height:1.5;color:#3E5642;">Here's your reminder to reach out to Cam E. Even a GIF or emoji says you're thinking about them! 👋</div>
+                    </div>
+                    <div style="background:#FAF8F4;border:1px solid #EAE5DC;border-radius:20px;padding:16px 16px 18px;box-shadow:0 6px 18px rgba(40,35,28,.06);display:flex;flex-direction:column;gap:9px;text-align:left;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A29E96;margin-bottom:3px;">Tend</div>
+                        <div style="align-self:flex-start;max-width:80%;background:#E7EEE7;border-radius:16px;border-top-left-radius:6px;padding:11px 14px;font-size:14.5px;line-height:1.45;color:#3E5642;">Did you end up reaching out to Cam E? Reply Y or N.</div>
+                        <div style="align-self:flex-end;max-width:60%;background:#5E7F63;border-radius:16px;border-bottom-right-radius:6px;padding:11px 14px;font-size:14.5px;line-height:1.45;color:#fff;">Y</div>
+                        <div style="align-self:flex-start;max-width:80%;background:#E7EEE7;border-radius:16px;border-top-left-radius:6px;padding:11px 14px;font-size:14.5px;line-height:1.45;color:#3E5642;">Thanks for the update! 👍</div>
+                    </div>
+                </div>
+                <!-- dashboard phone frame -->
+                <div style="width:100%;max-width:272px;flex-shrink:0;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A29E96;margin-bottom:12px;text-align:center;">The dashboard</div>
+                    <div style="background:#26241F;border-radius:34px;padding:9px;box-shadow:0 18px 44px rgba(40,35,28,.24);">
+                        <div style="background:#FAF8F4;border-radius:26px;overflow:hidden;">
+                            <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #EEE9E1;">
+                                <img src="/wordmark.svg" alt="Tend" style="height:15px;width:auto;display:block;">
+                                <div style="width:24px;height:24px;border-radius:50%;background:#E7EEE7;color:#5E7F63;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">S</div>
+                            </div>
+                            <div style="padding:16px 16px 20px;text-align:left;">
+                                <div style="font-weight:600;font-size:17px;letter-spacing:-.01em;color:#2A2926;margin-bottom:2px;">Hi Sam 👋</div>
+                                <div style="font-size:11.5px;color:#948F86;margin-bottom:12px;">5 people</div>
+                                <div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #EDE8E0;"><div style="flex:1;"><div style="display:flex;align-items:center;gap:6px;"><span style="font-weight:600;font-size:13.5px;color:#2A2926;">Priya K</span><span style="font-size:9px;font-weight:600;color:#B07B3F;background:#F6ECD9;border-radius:20px;padding:1px 6px;">Up next</span></div><div style="font-size:10.5px;color:#948F86;margin-top:2px;">Reached out 13 days ago</div></div><div style="display:flex;gap:3px;"><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;border:1.5px solid #D3CDC2;box-sizing:border-box;"></span><span style="width:7px;height:7px;border-radius:50%;border:1.5px solid #D3CDC2;box-sizing:border-box;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;border:1.5px solid #D3CDC2;box-sizing:border-box;"></span></div></div>
+                                <div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #EDE8E0;"><div style="flex:1;"><div style="font-weight:600;font-size:13.5px;color:#2A2926;">Dad</div><div style="font-size:10.5px;color:#948F86;margin-top:2px;">Reached out 10 days ago</div></div><div style="display:flex;gap:3px;"><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span></div></div>
+                                <div style="display:flex;align-items:center;gap:10px;padding:11px 0;"><div style="flex:1;"><div style="font-weight:600;font-size:13.5px;color:#2A2926;">Marcus T</div><div style="font-size:10.5px;color:#948F86;margin-top:2px;">Reached out 8 days ago</div></div><div style="display:flex;gap:3px;"><span style="width:7px;height:7px;border-radius:50%;border:1.5px solid #D3CDC2;box-sizing:border-box;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span><span style="width:7px;height:7px;border-radius:50%;border:1.5px solid #D3CDC2;box-sizing:border-box;"></span><span style="width:7px;height:7px;border-radius:50%;background:#5E7F63;"></span></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <h3>How it works</h3>
-        <div class="steps">
-            <p>1. <strong>Text HELLO.</strong> There's no registration or app to download.</p>
-            <p>2. <strong>Add your contacts.</strong> We only collect first name and last initial.</p>
-            <p>3. <strong>Get a nudge</strong> every two weeks, then Tend checks back.</p>
-        </div>
+        <!-- HOW IT WORKS -->
+        <section class="sec">
+            <div class="kicker" style="text-align:center;margin-bottom:8px;">How it works</div>
+            <div class="steps">
+                <div class="step">
+                    <div class="num">1</div>
+                    <h3>Text HELLO.</h3>
+                    <p>No app to download, no account to create.</p>
+                </div>
+                <div class="step">
+                    <div class="num">2</div>
+                    <h3>Add your people.</h3>
+                    <p>We only save a name and last initial.</p>
+                </div>
+                <div class="step">
+                    <div class="num">3</div>
+                    <h3>Get reminders to reach out.</h3>
+                    <p>Tend checks back in after a few days.</p>
+                </div>
+            </div>
+        </section>
 
-        <h3>Why we built this</h3>
-        <div class="hero-copy">
-        <p>U.S. adults spend over 10 hours a week on social media,<sup>2</sup> and scrolling leaves you
-            drained. What you're missing is real, human connection with your friends and loved
-            ones. Tend redirects that time and attention back to your relationships.</p>
-        </div>
-        <hr>
-        <p class="fine-print"> 1. By texting HELLO you agree to receive automated SMS reminders from Tend. Msg freq: ~2 msgs per contact every 2 weeks. Msg & data rates may apply. Reply STOP to unsubscribe. For more info view our <a href="terms.html">terms of service</a> and <a href="privacy.html">privacy policy</a>.</p>
-        <p class="fine-print">2. SOAX. (2025). What percentage of Americans use social media? Retrieved from
-            https://soax.com/research/what-percentage-of-americans-use-social-media</p>
-        <p>Contact us at <a href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</p>
-        <p>&copy; 2026 Sam Slesinger. All rights reserved.</p>
+        <!-- SMALL ON PURPOSE -->
+        <section class="sec">
+            <p class="pullquote">Tend isn't for your attention. It's for real, social connection.</p>
+            <div class="kicker" style="text-align:center;">Small on purpose</div>
+            <div class="pillars">
+                <div class="pillar">
+                    <h3>No app.</h3>
+                    <p>It works in the texts you already send. Nothing to download, no new account.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Free.</h3>
+                    <p>The reminders don't cost anything.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Private.</h3>
+                    <p>We keep almost nothing: your first name, your number, and a first name and last initial for each person. There's no feed, or hooks into your contacts. We will never sell your data.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Low-key by design.</h3>
+                    <p>Tend nudges you, then leaves you alone. It's meant to be used lightly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="sec" style="padding-top:12px;">
+            <div class="kicker" style="text-align:center;">Questions</div>
+            <div class="faq-list">
+                <details>
+                    <summary>How much does it cost?<span class="chev">›</span></summary>
+                    <p>Tend is free. (Your carrier's usual message and data rates may apply.)</p>
+                </details>
+                <details>
+                    <summary>How often will I hear from Tend?<span class="chev">›</span></summary>
+                    <p>About every couple of weeks for each person you add. Reply STOP anytime to pause everything.</p>
+                </details>
+                <details>
+                    <summary>Is it an app?<span class="chev">›</span></summary>
+                    <p>No. Tend works entirely over text. There's an optional web dashboard at <a href="https://app.tendsms.com">app.tendsms.com</a> to see everyone in one place, but you never have to leave your messages.</p>
+                </details>
+                <details>
+                    <summary>What data do you collect?<span class="chev">›</span></summary>
+                    <p>Just your first name, your phone number, and a first name and last initial for each person you add. Nothing else, and we never sell it. See our <a href="privacy.html">privacy policy</a>.</p>
+                </details>
+                <details>
+                    <summary>What kind of phone do I need?<span class="chev">›</span></summary>
+                    <p>Any phone that can send a text. No smartphone required.</p>
+                </details>
+                <details>
+                    <summary>How do I stop?<span class="chev">›</span></summary>
+                    <p>Reply STOP to any message.</p>
+                </details>
+                <details>
+                    <summary>Who's behind Tend?<span class="chev">›</span></summary>
+                    <p>One person who wanted to stay in better touch with his friends and loved ones. <a href="about.html">Read more</a>.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="foot">
+            <div class="foot-top">
+                <div>
+                    <img class="wordmark" src="/wordmark.svg" alt="Tend">
+                    <p class="foot-contact">Questions? Email <a href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</p>
+                </div>
+                <div class="foot-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+            </div>
+            <p class="fine-print">By texting HELLO you agree to receive automated SMS reminders from Tend. Msg freq: ~2 msgs per contact every 2 weeks. Msg &amp; data rates may apply. Reply STOP to unsubscribe. For more info view our <a href="terms.html">terms of service</a> and <a href="privacy.html">privacy policy</a>.</p>
+            <p class="copyright">© 2026 Sam Slesinger. All rights reserved.</p>
+        </footer>
     </main>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "562b72ef0b9046a58b86b4897c9987d0"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

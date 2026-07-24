@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why I built Tend.">
+
+    <title>Tend</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <style type="text/css">
+        /* Tend design system — tokens per the app (design/Tend.html) */
+        @font-face {
+            font-family: 'Figtree';
+            font-style: normal;
+            font-weight: 300 900;
+            font-display: swap;
+            src: url(fonts/figtree-var-latin.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 100 800;
+            font-display: swap;
+            src: url(fonts/jetbrains-mono-var-latin.woff2) format('woff2');
+        }
+
+        :root {
+            --canvas: #E8E6E1;
+            --paper: #FAF8F4;
+            --ink: #2A2926;
+            --sage: #5E7F63;
+            --mist: #E7EEE7;
+            --muted: #847F76;
+            --line: #EEE9E1;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--canvas);
+            font-family: 'Figtree', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: var(--ink);
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 28px 12px;
+        }
+
+        main {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--paper);
+            border: 1px solid rgba(0, 0, 0, .05);
+            border-radius: 34px;
+            box-shadow: 0 12px 34px rgba(40, 35, 28, .11), 0 2px 6px rgba(40, 35, 28, .05);
+            padding: 40px 34px 34px;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0; }
+            main { border-radius: 0; border: none; box-shadow: none; min-height: 100vh; padding: 32px 22px 28px; }
+        }
+
+        header { margin: 0 0 18px; }
+        header .wordmark { display: block; height: 20px; width: auto; }
+
+        h3 { font-weight: 600; font-size: 26px; letter-spacing: -.02em; color: var(--ink); margin: 26px 0 14px; }
+
+        p { margin: 0 0 16px; color: var(--ink); }
+
+        a { color: var(--sage); text-decoration: none; font-weight: 600; }
+        a:hover { opacity: .7; }
+        ::selection { background: var(--mist); }
+
+        .placeholder { color: var(--muted); }
+
+        .contact {
+            border-top: 1px solid var(--line);
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 14.5px;
+            color: var(--muted);
+        }
+
+        @media (min-width: 880px) {
+            main { max-width: 760px; padding: 56px 64px 48px; }
+            body { font-size: 17px; }
+            h3 { font-size: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <img class="wordmark" src="/wordmark.svg" alt="Tend" height="20">
+        </header>
+        <p><a href="index.html">Return to Home Page</a></p>
+
+        <h3>Why I built Tend</h3>
+
+        <!-- PLACEHOLDER: founder story. Sam to provide. -->
+        <p class="placeholder">Founder story to come.</p>
+
+        <p class="contact">Questions? Email <a href="mailto:hello@tendsms.com">hello@tendsms.com</a>.</p>
+    </main>
+    <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "562b72ef0b9046a58b86b4897c9987d0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
